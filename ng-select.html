@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>下拉选择框</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <select ng-model="selectside" ng-options="x.name for x in names">
+            <!-- 遍历数组集合，这种绑定的可以是一个对象 -->
+        </select>
+
+        <p>目前选中的：{{selectside.name}}</p>
+        <p>选中的网址是：{{selectside.url}}</p>
+        <hr>
+        <select ng-model="str">
+            <!-- 遍历数组集合，这种绑定的只能是一个字符串 -->
+            <option ng-repeat="x in names">{{x.name}}</option>
+        </select>
+        <p>选中的是：{{str}}</p>
+        <hr>
+        <!-- 遍历对象：显示为key，实际内容为value -->
+        <select ng-model="select" ng-options="x for (x,y) in lists"></select>
+        <p>选中的是：{{select}}</p>
+    </div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    angular.module('myApp',[]).controller('myCtrl',function($scope){
+        $scope.names = [
+            {name:'baidu',url:'www.baidu.com'},
+            {name:'ali',url:'www.alibaba.com'},
+            {name:'tencent',url:'www.qq.com'}
+        ]
+        $scope.lists = {
+            house:'有',
+            money:'没有',
+            meizi:'不知道'
+        }
+        // 设初始值
+        $scope.selectside = $scope.names[1]
+        $scope.str = $scope.names[1].name
+       
+    })
+</script>
+</html>

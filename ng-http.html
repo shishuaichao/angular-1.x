@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>http请求</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>{{res}}</p>
+    </div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    angular.module('myApp',[]).controller('myCtrl',function($scope,$http){
+        // 通用写法
+        // $http({
+        //     method:'get',
+        //     url:'./dta.json'
+        // }).then(function successCallback(res){
+        //     console.log(res)
+        //     $scope.res = res.data
+        // },function errorCallback(res){
+        //     console.log(res)
+        //     $scope.res = res.data
+        // })
+        // 简单写法
+        $http.get('./data.json').then(function(res){
+            $scope.res = res.data
+        })
+    })
+</script>
+</html>
