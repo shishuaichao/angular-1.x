@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>表单验证</title>
+<style>
+    input.ng-invalid{
+        background-color: #f00;
+    }
+</style>
+</head>
+<body>
+    <form action="" ng-app="" name="myForm" ng-init="myText='test@ssc.com'">
+        Email:
+        <input type="email" name="myAddress" ng-model="myText" required>
+        <h1>状态</h1>
+        <p>Valid: {{myForm.myAddress.$valid}} (如果输入的值是合法的则为true)</p>
+        <p>Dirty: {{myForm.myAddress.$dirty}} (如果值改变则为true)</p>
+        <p>Touched: {{myForm.myAddress.$touched}} (是否已经被选中过true)</p>
+        <p>pristine: {{myForm.myAddress.$pristine}} (是否还纯洁，未被修改过是纯洁)</p>
+        <hr>
+
+        <input name="myName" ng-model="text" required>
+    </form>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    
+</script>
+</html>

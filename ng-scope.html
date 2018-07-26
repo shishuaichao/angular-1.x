@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>作用域</title>
+</head>
+<body>
+    <div ng-app="myApp" >
+        <div ng-controller="myCtrl">
+            <input type="text" ng-model="greeting">
+            <h1>{{greeting}}</h1>
+            <button ng-click="sayHello()">click me to change XXX</button>
+        </div>
+        <div ng-controller="ssc">
+            <input type="text" ng-model="xxx">
+            <p>{{xxx}}</p>
+        </div>
+    </div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    var app = angular.module('myApp',[])
+    app.controller('myCtrl',function($scope,$rootScope){
+        $scope.name = 'ssc'
+        $scope.greeting = 'xxx'
+        $scope.sayHello = function(){
+            $scope.greeting = '改变下面的变量'
+            $rootScope.xxx = 'changed'
+        } 
+    })
+    app.controller('ssc',function($scope,$rootScope){
+        // $scope.xxx = '你好'
+        $rootScope.xxx = 'hello'   // 用$rootScope定义的变量，可以在各个controller中访问，但是如果内部有同名变量，scope会吧rootScope覆盖掉
+    })
+
+    
+</script>
+</html>

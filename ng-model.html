@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>ng-model</title>
+</head>
+<body>
+    <!-- <div ng-app="" data-ng-init="firstName='John';lastName='Smith'">
+        <p>名字：<input type="text" ng-model="name"></p>
+        <h1>hello {{name}}</h1>
+
+        <p>姓名为 <span data-ng-bind="firstName"></span></p>
+
+        <p>我是一个表达式： {{5 + 5}}</p>
+
+        <p>{{firstName + ' ' + lastName}}</p>
+    </div> -->
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        名：<input type="text" ng-model="firstName"><br>
+        姓：<input type="text" ng-model="lastName"><br>
+        
+        姓名： {{firstName + ' ' + lastName}} <br>
+
+        运算：{{quantity * cost}} <br>
+
+        <p> 姓名为：<span ng-bind="person.lastName"></span></p>
+        <ul>
+            <li ng-repeat="x in names">
+                {{x}}
+            </li>
+            <li ng-repeat="x in list">
+                {{x.name + ' ' + x.country}}
+            </li>
+        </ul>
+
+    </div>
+
+
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+<script>
+    var app = angular.module('myApp',[]);
+    app.controller('myCtrl',function($scope){
+        $scope.firstName = 'John';
+        $scope.lastName = 'Smith';
+        $scope.quantity = 1;
+        $scope.cost = 5;
+        $scope.person = {firstName:'John',lastName:'Smith'}
+        $scope.names = ['Jani','Hage','Kai']
+        $scope.list = [
+            {name:'Jani',country:'Norway'},
+            {name:'Hege',country:'Sweden'},
+            {name:'Kai',country:'Denmark'}
+        ]
+        $scope.myform
+    })
+</script>
+</html>

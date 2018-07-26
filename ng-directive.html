@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>指令</title>
+</head>
+<body>
+    <div ng-app="myApp">
+        标签名:  <ssc-directive></ssc-directive> <br>
+        属性名： <div ssc-directive></div> <br>
+        类名： <div class="ssc-directive"></div> <br>
+        注释名： <!-- directive: ssc-directive -->
+    </div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    var app = angular.module('myApp',[])
+    app.directive('sscDirective',function(){
+        return {
+            // restrict:'C',
+            restrict:'EAMC',  // 默认是EA  e:标签名 a：属性名 c：类名 M：注释名
+            replace:true,
+            template:"<h1>自定义指令</h1>"
+        }
+    })
+</script>
+</html>
