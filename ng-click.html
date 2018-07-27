@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>事件</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>
+            <button ng-click="toggle()">显示/隐藏</button>
+        </p>
+        <p ng-show="myVar">
+            这是一段可以隐藏的内容
+        </p>
+    </div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    angular.module('myApp',[]).controller('myCtrl',function($scope){
+        $scope.myVar = true
+        $scope.toggle = function(){
+            // alert('hello world')
+            $scope.myVar = !$scope.myVar
+        }
+    })
+</script>
+</html>

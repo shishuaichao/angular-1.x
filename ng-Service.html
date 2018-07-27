@@ -25,7 +25,7 @@
         console.log($location.$$absUrl)
         console.log($location)
 
-        $http.get('../data.json').then(function(res){
+        $http.get('./data.json').then(function(res){
             console.log(res)
             $scope.person = res.data
         })
