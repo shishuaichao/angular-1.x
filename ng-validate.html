@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>表单验证</title>
+</head>
+<body>
+    <form name="myForm" ng-app="myApp" ng-controller="myCtrl" autocomplete="off" novalidate>
+        <p>
+            <input type="text" name="userName" ng-model="userName"required>
+            <span style="color: #f00" ng-show="myForm.userName.$invalid && myForm.userName.$touched">用户名不能够为空</span>
+            
+        </p> 
+        <p>
+            <input ng-model="userEmail" name="userEmail" required type="email">
+            <span style="color: #f00" ng-show="myForm.userEmail.$touched">
+                <span ng-show="myForm.userEmail.$error.required">邮箱不能为空</span>
+                <span ng-show="myForm.userEmail.$error.email">邮箱格式不正确</span>
+            </span>
+        </p> 
+        
+        <p>
+            <button ng-disabled="myForm.userName.$invalid || myForm.userEmail.$invalid">提交</button>
+        </p>
+    </form>
+</body>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    angular.module('myApp',[]).controller('myCtrl',function($scope){
+        $scope.userName = ''
+        $scope.userEmail = ''
+    })
+</script>
+</html>

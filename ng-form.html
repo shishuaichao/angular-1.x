@@ -12,7 +12,7 @@
 </style>
 </head>
 <body>
-    <form action="" ng-app="" name="myForm" ng-init="myText='test@ssc.com'">
+    <form action="" ng-app="" name="myForm" ng-init="myText='test@ssc.com';myVal1=['dog','cat','cow']">
         Email:
         <input type="email" name="myAddress" ng-model="myText" required>
         <h1>状态</h1>
@@ -23,6 +23,27 @@
         <hr>
 
         <input name="myName" ng-model="text" required>
+
+
+
+        <hr>
+
+        <!-- 单选框 -->
+        <p>
+            <input type="radio" ng-model="myVal" value="dog">狗
+            <input type="radio" ng-model="myVal" value="cat">猫
+            <input type="radio" ng-model="myVal" value="cow">牛
+        </p>
+        <!-- 多选 -->
+        <p>
+            <select ng-model="myVal" ng-options="x for x in myVal1"></select>
+        </p>
+        <!-- ng-switch 专门为单选多选按钮设计的显示隐藏控制 -->
+        <div ng-switch="myVal">  
+            <p ng-switch-when="dog">这是一条狗</p>
+            <p ng-switch-when="cat">这是一只猫</p>
+            <p ng-switch-when="cow">这是一头牛</p>
+        </div>
     </form>
 </body>
 <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
